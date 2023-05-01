@@ -6,6 +6,7 @@ import MainMint from './components/MainMint';
 import Search from './components/Search';
 import Home from './components/Home';
 import View from './components/View';
+import DemoInfo from './components/DemoInfo';
 import './App.css';
 
 
@@ -24,6 +25,7 @@ function App() {
       <Navigation/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="demo-info" element={<DemoInfo/>}/>
           <Route path="/mint" element={<MainMint accounts={accounts} setAccounts={setAccounts} />}/>
           <Route path="/search" element={<ApolloProvider client={client}><Search/></ApolloProvider>} />
           <Route path="/view/:id" element={<ApolloProvider client={client}><View/></ApolloProvider>}/>

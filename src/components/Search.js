@@ -37,29 +37,38 @@ function Search() {
 
   return (
     <div>
-        <div className="text-center my-3">
-            <h1 className="my-3">Search Diplomas</h1>
+      <div className="bg-dark">
+        <div className="text-light text-center bg-dark">
+            <h1 className="">Search Diplomas</h1>
             <h3>You can search by name, major, institution, or graduation date</h3>
             <p>All results are verified diplomas (data called directly from indexed smart contract)</p>
         </div>
 
-        <div className="text-center">
-        <input className="form-control rounded-pill my-5" type="text" value={searchTerm} onChange={handleSearchTermChange} />
-        {loading && <p>Loading...</p>}
-        {error && <p>Error: {error.message}</p>}
-        {data && data.diplomas.map((diploma) => (
-            <div className="card" style={{width: '20rem'}} key={diploma.id}>
-                <div className="card-body">
-                    <h3>{diploma.studentName}</h3>
-                    <p>{diploma.major}</p>
-                    <p>{diploma.graduationDate}</p>
-                    <p>{diploma.institution}</p>
-                    <a href={`/view/${diploma.id}`} className="btn btn-primary">View Diploma</a>
-                </div>
-            </div>
-        ))}
+        <div className="text-center bg-dark">
+          <div className="d-flex justify-content-center">
+            <input className="form-control rounded-pill my-4 col-md-8 mb-5" type="text" value={searchTerm} onChange={handleSearchTermChange} />
+          </div>
         </div>
-    </div>
+      </div>
+
+          <div className="mt-5 bg-harvard"></div>
+
+          <div className="bg-harvard mb-5">
+            {loading && <p className="text-light text-center">Loading...</p>}
+            {error && <p className="text-light text-center">Error: {error.message}</p>}
+            {data && data.diplomas.map((diploma) => (
+              <div className="card mx-5" style={{width: '20rem'}} key={diploma.id}>
+                <div className="card-body text-center">
+                  <h3>{diploma.studentName}</h3>
+                  <p>{diploma.major}</p>
+                  <p>{diploma.graduationDate}</p>
+                  <p>{diploma.institution}</p>
+                  <a href={`/view/${diploma.id}`} className="btn text-light bg-harvard">View Diploma</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
   );
 }
 

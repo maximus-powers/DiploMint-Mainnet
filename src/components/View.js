@@ -26,7 +26,7 @@ function View() {
     })
 
     return (
-        <div>
+        <div className="text-light">
         {loading && <p>Loading...</p>}
         {error && <p>Error: {error.message}</p>}
         {data && (

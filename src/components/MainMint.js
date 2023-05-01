@@ -49,27 +49,45 @@ const MainMint = ({ accounts, setAccounts }) => {
     }
 
     return (
-        <div className="text-center mt-3">
+    <div>
+        <div className="text-center pb-3 text-light bg-dark">
         <h1>Mint a Diploma</h1> {/* change this to update automatically when I setup auth */}
         <p>Please fill out all fields for your student's diploma:</p>
+        </div>
         
-        {/* Asks them to sign in with wallet before they can mint a diploma */}
+        <div className="text-center mt-5">
             {isConnected ? (
-            <form>
-                <input type="text" value={institution} onChange={handleSetInstitution} placeholder="Institution"/>
-                <input type="text" value={studentName} onChange={handleSetStudentName} placeholder="Student Name"/>
-                <input type="text" value={studentWallet} onChange={handleSetStudentWallet} placeholder="Student Wallet Address"/>
-                <input type="text" value={studentMajor} onChange={handleSetStudentMajor} placeholder="Major"/>
-                <input type="date" value={studentGraduationDate} onChange={handleSetStudentGraduationDate} placeholder="Graduation Date"/>
-                <button onClick={mintDiploma}>Mint Diploma</button>
-            </form>
+                <form>
+                <div className="row justify-content-center flex-column align-items-center">
+                    <div className="col-md-3">
+                    <input type="text" value={institution} onChange={handleSetInstitution} placeholder="Institution" className="form-control mb-3" />
+                    </div>
+                    <div className="col-md-3">
+                    <input type="text" value={studentName} onChange={handleSetStudentName} placeholder="Student Name" className="form-control mb-3" />
+                    </div>
+                    <div className="col-md-3">
+                    <input type="text" value={studentWallet} onChange={handleSetStudentWallet} placeholder="Student Wallet Address" className="form-control mb-3" />
+                    </div>
+                    <div className="col-md-3">
+                    <input type="text" value={studentMajor} onChange={handleSetStudentMajor} placeholder="Major" className="form-control mb-3" />
+                    </div>
+                    <div className="col-md-3">
+                    <input type="date" value={studentGraduationDate} onChange={handleSetStudentGraduationDate} placeholder="Graduation Date" className="form-control mb-3" />
+                    </div>
+                </div>
+                <button onClick={mintDiploma} className="btn bg-dark text-light">Mint Diploma</button>
+                </form>
             ) : (
                 <div>
-                    <p>Please connect your wallet to mint</p>
-                    {isConnected ? (<div>Connected</div>) : (<button onClick={connectAccount}>Connect</button>)}
+                <p className="text-light">Please connect your wallet to mint</p>
+                {isConnected ? (<div>Connected</div>) : (<button className="btn bg-dark text-light" onClick={connectAccount}>Connect</button>)}
                 </div>
             )}
         </div>
+
+
+
+    </div>
     );
 }
 

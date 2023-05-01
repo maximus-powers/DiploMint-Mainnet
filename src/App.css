@@ -1,6 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-.navbar {
+body {
+  background-color: #A41034;
+}
+
+
+.bg-harvard {
   background-color: #A41034;
 }
 
